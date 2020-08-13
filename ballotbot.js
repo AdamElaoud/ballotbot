@@ -18,8 +18,8 @@ const prefix = "!";
 
 client.on("ready", () => {
 	client.user.setActivity("❓ Use !votehelp");
-	console.log(`Logged in as ${client.user.tag}!`);
-	console.log(`Used in ${client.guilds.cache.size} servers:\n${client.guilds.cache.array()}`);
+	process.stdout.write(`Logged in as ${client.user.tag}!`);
+	process.stdout.write(`Used in ${client.guilds.cache.size} servers:\n${client.guilds.cache.array()}`);
 });
 
 const uniquenessWeight = 0.35;
