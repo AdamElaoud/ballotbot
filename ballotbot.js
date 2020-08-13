@@ -19,6 +19,13 @@ const prefix = "!";
 bot.on("ready", () => {
 	bot.user.setActivity("❓ Use !votehelp");
 	console.log(`Logged in as ${bot.user.tag}!`);
+	
+	// send launch notification!
+	bot.users.fetch("193427298958049280").then(
+		function(user) {
+			user.send("Bot Online!");
+		}
+	);
 });
 
 const uniquenessWeight = 0.35;
@@ -26,7 +33,6 @@ const rarityWeight = 0.3;
 const difficultyWeight = 0.15;
 const personalEvalWeight = 0.2;
 
-// !vote command
 bot.on("message", message => {
 	// (FOR DEBUGGING)
 	//console.log("Message Parsed [" + message.attachments.size + "]: \"" + message.content + "\"");
