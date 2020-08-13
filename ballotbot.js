@@ -7,9 +7,9 @@
 // copyright (c) 2020
 
 // require discord.js module
-const Discord = require("../node_modules/discord.js");
+const Discord = require("discord.js");
 //require dotenv-flow to load environment variables
-require("../node_modules/dotenv-flow").config();
+require("dotenv-flow").config();
 // create new client
 const client = new Discord.Client();
 
