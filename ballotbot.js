@@ -18,6 +18,7 @@ const prefix = "!";
 
 client.on("ready", () => {
 	client.user.setActivity("❓ Use !votehelp");
+	console.log(`Logged in as ${client.user.tag}!`);
 });
 
 const uniquenessWeight = 0.35;
@@ -53,10 +54,10 @@ client.on("message", message => {
 					let servers = client.guilds.cache.array();
 					let serverPrintout = "";
 
-					servers.forEach(ele => serverPrintout += "\n:white_small_square:" + ele);
+					servers.forEach(ele => serverPrintout += "\n:white_small_square:" + ele.name);
 
 					message.channel.send(`Logged in as ${client.user.tag}!`
-						+ `\nUsed in ${client.guilds.cache.size} servers:${serverPrintout}`);
+						+ `\nUsed in ${client.guilds.cache.size} server(s):${serverPrintout}`);
 					
 				} else {
 					message.channel.send(":exclamation: **━━━━━ ERROR ━━━━━** :exclamation:"
@@ -240,4 +241,4 @@ client.on("message", message => {
 });
 
 // login to Discord with bot token
-client.login(process.env.BALLOTBOTTOKEN);
+client.login(process.env.DEVBALLOTBOTTOKEN);
