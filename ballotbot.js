@@ -53,7 +53,7 @@ client.on("message", message => {
 					let servers = client.guilds.cache.array();
 					let serverPrintout = "";
 
-					servers.forEach(ele => serverPrintout += "\n:white_small_square:" + ele.name);
+					servers.forEach(ele => serverPrintout += "\n:white_small_square:" + ele);
 
 					message.channel.send(`Logged in as ${client.user.tag}!`
 						+ `\nUsed in ${client.guilds.cache.size} servers:${serverPrintout}`);
