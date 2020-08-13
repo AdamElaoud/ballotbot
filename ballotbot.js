@@ -1,4 +1,4 @@
-// invite link: https://discordapp.com/oauth2/authorize?&client_id=733764727053746187&scope=bot&permissions=8
+// invite link: https://discordapp.com/oauth2/authorize?&bot_id=733764727053746187&scope=bot&permissions=8
 // developer portal: https://discord.com/developers/applications
 // discord.js API: https://discordjs.guide/
 // launch command: nodemon --inspect ballotbot.js
@@ -10,15 +10,15 @@
 const Discord = require("discord.js");
 //require dotenv-flow to load environment variables
 require("dotenv-flow").config();
-// create new client
-const client = new Discord.Client();
+// create new bot
+const bot = new Discord.Client();
 
 // command prefix
 const prefix = "!";
 
-client.on("ready", () => {
-	client.user.setActivity("❓ Use !votehelp");
-	console.log(`Logged in as ${client.user.tag}!`);
+bot.on("ready", () => {
+	bot.user.setActivity("❓ Use !votehelp");
+	console.log(`Logged in as ${bot.user.tag}!`);
 });
 
 const uniquenessWeight = 0.35;
@@ -27,7 +27,7 @@ const difficultyWeight = 0.15;
 const personalEvalWeight = 0.2;
 
 // !vote command
-client.on("message", message => {
+bot.on("message", message => {
 	// (FOR DEBUGGING)
 	//console.log("Message Parsed [" + message.attachments.size + "]: \"" + message.content + "\"");
 
@@ -49,15 +49,16 @@ client.on("message", message => {
 		// checking command request
 		switch(args[0]) {
 			case "info":
-				// allow usage only if user is the owner
+				// allow usage only if user is the owner (below ID is @Sap#5703's ID)
 				if (message.member.id.localeCompare("193427298958049280") == 0) {
-					let servers = client.guilds.cache.array();
+					let servers = bot.guilds.cache.array();
 					let serverPrintout = "";
 
 					servers.forEach(ele => serverPrintout += "\n:white_small_square:" + ele.name);
 
-					message.channel.send(`Logged in as ${client.user.tag}!`
-						+ `\nUsed in ${client.guilds.cache.size} server(s):${serverPrintout}`);
+					message.channel.send(":chart_with_upwards_trend: **━━━━━ BOT DATA ━━━━━** :chart_with_upwards_trend:"
+						+ `\nLogged in as **${bot.user.tag}**!`
+						+ `\nUsed in **${bot.guilds.cache.size}** server(s):${serverPrintout}`);
 					
 				} else {
 					message.channel.send(":exclamation: **━━━━━ ERROR ━━━━━** :exclamation:"
@@ -241,4 +242,4 @@ client.on("message", message => {
 });
 
 // login to Discord with bot token
-client.login(process.env.BALLOTBOTTOKEN);
+bot.login(process.env.DEVBALLOTBOTTOKEN);
