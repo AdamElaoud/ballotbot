@@ -356,4 +356,4 @@ bot.on("message", message => {
 });
 
 // login to Discord with bot token
-bot.login(process.env.DEVBALLOTBOTTOKEN);
+bot.login(process.env.BALLOTBOTTOKEN);
