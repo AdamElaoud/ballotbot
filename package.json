@@ -5,7 +5,13 @@
     "dependencies" : {
         "discord.js": "12.2.0"
     },
-    "repository" : {"type": "git", "url": "https://github.com/AdamElaoud/ballotbot"},
+    "scripts": {
+        "start": "node ballotbot.js"
+    },
+    "repository" : {
+        "type": "git",
+        "url": "https://github.com/AdamElaoud/ballotbot"
+    },
     "main" : "ballotbot.js",
     "version" : "1.0.0"
 }
