@@ -18,8 +18,6 @@ const prefix = "!";
 
 client.on("ready", () => {
 	client.user.setActivity("❓ Use !votehelp");
-	process.stdout.write(`Logged in as ${client.user.tag}!`);
-	process.stdout.write(`Used in ${client.guilds.cache.size} servers:\n${client.guilds.cache.array()}`);
 });
 
 const uniquenessWeight = 0.35;
@@ -49,6 +47,22 @@ client.on("message", message => {
 	if (message.attachments.size == 0 && prefixCheck[0].localeCompare(prefix) == 0) {
 		// checking command request
 		switch(args[0]) {
+			case "info":
+				// allow usage only if user is the owner
+				if (message.member.id.localeCompare("193427298958049280") == 0) {
+					let servers = client.guilds.cache.array();
+					let serverPrintout = "";
+
+					servers.forEach(ele => serverPrintout += "\n:white_small_square:" + ele);
+
+					message.channel.send(`Logged in as ${client.user.tag}!`
+						+ `\nUsed in ${client.guilds.cache.size} servers:${serverPrintout}`);
+					
+				} else {
+					message.channel.send(":exclamation: **━━━━━ ERROR ━━━━━** :exclamation:"
+					+ "\nYou must be the bot owner to use this command!");
+				}
+				break;
 			case "votehelp":
 				// allow usage only if member is on the Nomination Committee
 				if (message.member.roles.cache.some(role => role.name === "Nomination Committee")) {
