@@ -26,7 +26,7 @@ bot.on("ready", () => {
 			let date = new Date();
 			user.send("Bot Online! **" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "**");
 		}
-	);
+	).catch(err => {console.log("Error sending message! Error: ", err.message)});
 });
 
 // voting calculation data
