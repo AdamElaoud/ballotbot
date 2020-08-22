@@ -1,6 +1,6 @@
 // file containing ubiquitous data for Ballotbot
 module.exports = {
-    prefix: "!b",
+    prefix: "!bal",
     ownerId: "193427298958049280",
     ownerMention: "<@193427298958049280>",
     nominationId: "723249250288271401",
