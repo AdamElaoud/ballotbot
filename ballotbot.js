@@ -79,7 +79,7 @@ bot.on("message", message => {
 			bot.commands.get("evaluate7").execute(message, args);
 			break;
 		default:
-			bot.commands.get("unrecognized").execute(message, command);
+			//bot.commands.get("unrecognized").execute(message, command);
 	}
 });
 
