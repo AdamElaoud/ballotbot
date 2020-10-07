@@ -6,6 +6,8 @@ module.exports = {
     nominationId: "723249250288271401",
     nominationMention: "<@&723249250288271401>",
     hallMention: "<#713262577131585546>",
+    scores: "733759232184287382",
+    chat: "723243910423380069",
     uniqueness: 0.35,
     rarity: 0.3,
     difficulty: 0.15,

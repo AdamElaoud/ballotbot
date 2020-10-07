@@ -44,7 +44,8 @@ bot.on("ready", () => {
 
 bot.on("message", message => {
 	// if another bot sent the message, if it has attachments, or if the prefix wasn't used, do nothing
-	if (message.author.bot || message.attachments.size !== 0 || !message.content.startsWith(Data.prefix))
+	if (message.author.bot || message.attachments.size !== 0 || !message.content.startsWith(Data.prefix)
+			|| (message.channel.id !== Data.scores && message.channel.id !== Data.chat))
 		return;
 
 	if (devmode && message.author.id !== Data.ownerId) {
